@@ -10,9 +10,18 @@ import {
 	Center,
 } from "@chakra-ui/react";
 import { AiFillGithub, AiFillTwitterCircle } from "react-icons/ai";
-import { Link as RouterLink } from "react-router-dom";
+import { Link as RouterLink, useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 import chatBanner from "../assets/chatBanner.svg";
 function Homepage() {
+	const navigate = useNavigate();
+	useEffect(() => {
+		const userInfo = JSON.parse(localStorage.getItem("userInfo"));
+
+		if (!userInfo) {
+			navigate.push("/chats");
+		}
+	}, [navigate]);
 	return (
 		<Box minHeight="100vh" display="flex" flexDirection="column" bg="gray.50">
 			{/* Navbar */}
