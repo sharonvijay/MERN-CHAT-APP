@@ -4,7 +4,7 @@ import Homepage from "./pages/Homepage";
 import Chatpage from "./pages/Chatpage";
 import SignUp from "./components/authentication/SignUp";
 import SignIn from "./components/authentication/SignIn";
-
+import "./App.css";
 function App() {
 	const [isAuthenticated, setIsAuthenticated] = useState(false);
 
