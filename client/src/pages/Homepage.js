@@ -18,8 +18,8 @@ function Homepage() {
 	useEffect(() => {
 		const userInfo = JSON.parse(localStorage.getItem("userInfo"));
 
-		if (!userInfo) {
-			navigate.push("/chats");
+		if (userInfo) {
+			navigate("/chats");
 		}
 	}, [navigate]);
 	return (
