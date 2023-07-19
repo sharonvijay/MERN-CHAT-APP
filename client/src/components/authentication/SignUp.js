@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link as RouterLink } from "react-router-dom";
 import axios from "axios";
 import {
 	Box,
@@ -8,12 +8,14 @@ import {
 	CardBody,
 	Center,
 	useToast,
+	Link,
+	Text,
 } from "@chakra-ui/react";
 import { Button } from "@chakra-ui/button";
 import { FormControl, FormLabel } from "@chakra-ui/form-control";
 import { Input, InputGroup, InputRightElement } from "@chakra-ui/input";
-import { Stack, VStack } from "@chakra-ui/layout";
-
+import { Stack, VStack, HStack } from "@chakra-ui/layout";
+import loginBanner from "../../assets/loginBanner.jpg";
 const SignUp = () => {
 	const [showone, setShowone] = useState(false);
 	const [showtwo, setShowtwo] = useState(false);
@@ -140,121 +142,160 @@ const SignUp = () => {
 	};
 
 	return (
-		<Box>
-			<Center>
-				<Stack spacing="4">
-					<VStack spacing="6" mt="8">
-						<Heading
-							as="h1"
-							fontWeight="300"
-							fontSize="24px"
-							letterSpacing="-0.5px">
-							Sign Up to Muchatlu
-						</Heading>
-					</VStack>
-					<Card
-						bg="#f6f8fa"
-						variant="outline"
-						borderColor="#d8dee4"
-						maxW="308px">
-						<CardBody>
-							<form>
-								<Stack>
-									<FormControl id="name" isRequired>
-										<FormLabel size="sm">Name</FormLabel>
-										<Input
-											placeholder="Enter Your Name"
-											type="text"
-											bg="white"
-											borderColor="#d8dee4"
-											size="sm"
-											borderRadius="6px"
-											onChange={(e) => {
-												setName(e.target.value);
-											}}
-										/>
-									</FormControl>
-									<FormControl id="email" isRequired>
-										<FormLabel size="sm">Email Address</FormLabel>
-										<Input
-											placeholder="Enter Your Email"
-											type="text"
-											bg="white"
-											borderColor="#d8dee4"
-											size="sm"
-											borderRadius="6px"
-											onChange={(e) => {
-												setEmail(e.target.value);
-											}}
-										/>
-									</FormControl>
-									<FormControl id="password" isRequired>
-										<FormLabel size="sm">Password</FormLabel>
-										<InputGroup>
+		<Box
+			backgroundImage={`url(${loginBanner})`}
+			backgroundSize="cover"
+			backgroundPosition="center"
+			backgroundRepeat="no-repeat"
+			height="100vh"
+			display="flex"
+			justifyContent="center"
+			alignItems="center">
+			<Box
+				p="4"
+				width={{ base: "100%", md: "80%" }}
+				maxW={{ base: "100%", md: "800px" }}
+				boxShadow="lg"
+				borderRadius="md"
+				bg="rgba(255, 255, 255, 0.85)"
+				backdropFilter="blur(5px)">
+				<Center>
+					<Stack spacing="4">
+						<VStack spacing="6" mt="8">
+							<Heading
+								as="h1"
+								fontWeight="300"
+								fontSize="24px"
+								letterSpacing="-0.5px">
+								Sign Up to Muchatlu
+							</Heading>
+						</VStack>
+						<Card
+							bg="#f6f8fa"
+							variant="outline"
+							borderColor="#d8dee4"
+							maxW="308px">
+							<CardBody>
+								<form>
+									<Stack>
+										<FormControl id="name" isRequired>
+											<FormLabel size="sm">Name</FormLabel>
 											<Input
-												placeholder="Enter password"
-												type={showone ? "text" : "password"}
+												placeholder="Enter Your Name"
+												type="text"
 												bg="white"
 												borderColor="#d8dee4"
 												size="sm"
 												borderRadius="6px"
 												onChange={(e) => {
-													setPassword(e.target.value);
+													setName(e.target.value);
 												}}
 											/>
-											<InputRightElement width="4.5rem">
-												<Button h="1.75rem" size="sm" onClick={handleClickone}>
-													{showone ? "Hide" : "Show"}
-												</Button>
-											</InputRightElement>
-										</InputGroup>
-									</FormControl>
-									<FormControl id="confirmpassword" isRequired>
-										<FormLabel size="sm">Confirm Password</FormLabel>
-										<InputGroup>
+										</FormControl>
+										<FormControl id="email" isRequired>
+											<FormLabel size="sm">Email Address</FormLabel>
 											<Input
-												placeholder="Enter password"
-												type={showtwo ? "text" : "password"}
+												placeholder="Enter Your Email"
+												type="text"
 												bg="white"
 												borderColor="#d8dee4"
 												size="sm"
 												borderRadius="6px"
 												onChange={(e) => {
-													setConfirmpassword(e.target.value);
+													setEmail(e.target.value);
 												}}
 											/>
-											<InputRightElement width="4.5rem">
-												<Button h="1.75rem" size="sm" onClick={handleClicktwo}>
-													{showtwo ? "Hide" : "Show"}
-												</Button>
-											</InputRightElement>
-										</InputGroup>
-									</FormControl>
-									<FormControl id="pic">
-										<FormLabel>Upload your Picture</FormLabel>
-										<Input
-											type="file"
-											p={1.5}
-											accept="image/*"
-											onChange={(e) => postDetails(e.target.files[0])}
-										/>
-									</FormControl>
-									<Button
-										bg="#2da44e"
-										color="white"
-										size="sm"
-										_hover={{ bg: "#2c974b" }}
-										_active={{ bg: "#298e46" }}
-										onClick={submitHandler}
-										isLoading={picLoading}>
-										Sign Up
-									</Button>
-								</Stack>
-							</form>
-						</CardBody>
-					</Card>
-				</Stack>
-			</Center>
+										</FormControl>
+										<FormControl id="password" isRequired>
+											<FormLabel size="sm">Password</FormLabel>
+											<InputGroup>
+												<Input
+													placeholder="Enter password"
+													type={showone ? "text" : "password"}
+													bg="white"
+													borderColor="#d8dee4"
+													size="sm"
+													borderRadius="6px"
+													onChange={(e) => {
+														setPassword(e.target.value);
+													}}
+												/>
+												<InputRightElement width="4.5rem">
+													<Button
+														h="1.75rem"
+														size="sm"
+														onClick={handleClickone}>
+														{showone ? "Hide" : "Show"}
+													</Button>
+												</InputRightElement>
+											</InputGroup>
+										</FormControl>
+										<FormControl id="confirmpassword" isRequired>
+											<FormLabel size="sm">Confirm Password</FormLabel>
+											<InputGroup>
+												<Input
+													placeholder="Enter password"
+													type={showtwo ? "text" : "password"}
+													bg="white"
+													borderColor="#d8dee4"
+													size="sm"
+													borderRadius="6px"
+													onChange={(e) => {
+														setConfirmpassword(e.target.value);
+													}}
+												/>
+												<InputRightElement width="4.5rem">
+													<Button
+														h="1.75rem"
+														size="sm"
+														onClick={handleClicktwo}>
+														{showtwo ? "Hide" : "Show"}
+													</Button>
+												</InputRightElement>
+											</InputGroup>
+										</FormControl>
+										<FormControl id="pic">
+											<FormLabel>Upload your Picture</FormLabel>
+											<Input
+												type="file"
+												p={1.5}
+												accept="image/*"
+												onChange={(e) => postDetails(e.target.files[0])}
+											/>
+										</FormControl>
+										<Button
+											bg="#2da44e"
+											color="white"
+											size="sm"
+											_hover={{ bg: "#2c974b" }}
+											_active={{ bg: "#298e46" }}
+											onClick={submitHandler}
+											isLoading={picLoading}>
+											Sign Up
+										</Button>
+									</Stack>
+								</form>
+							</CardBody>
+						</Card>
+						<Card variant="outline" borderColor="#d0d7de">
+							<CardBody>
+								<Center>
+									<HStack fontSize="sm" spacing="1">
+										<Text>New to Muchatlu?</Text>
+										<Link
+											as={RouterLink}
+											to="/signin"
+											color="#0969da"
+											_hover={{ textDecoration: "underline" }}>
+											Already Have Account? Sign In
+										</Link>
+									</HStack>
+								</Center>
+							</CardBody>
+						</Card>
+					</Stack>
+				</Center>
+			</Box>
 		</Box>
 	);
 };
