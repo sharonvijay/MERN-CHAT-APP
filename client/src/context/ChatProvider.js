@@ -14,11 +14,16 @@ const ChatProvider = ({ children }) => {
 		const userInfo = JSON.parse(localStorage.getItem("userInfo"));
 		setUser(userInfo);
 
-		if (!userInfo) {
-			navigate("/");
-		}
+		// if (!userInfo) {
+		// 	navigate("/signin");
+		// }
 		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [navigate]);
+	}, []);
+
+	const updateUser = (user) => {
+		setUser(user);
+	};
+
 	return (
 		<ChatContext.Provider
 			value={{
@@ -30,6 +35,7 @@ const ChatProvider = ({ children }) => {
 				setNotification,
 				chats,
 				setChats,
+				updateUser,
 			}}>
 			{children}
 		</ChatContext.Provider>
