@@ -7,7 +7,7 @@ const Content = () => {
 	return (
 		<Box mr={6} mb={8} p={4}>
 			<Heading as="h1" size="xl" mb={4} pt="10px">
-				Welcome to the MERN Chat App!
+				Welcome to the MernApp!
 			</Heading>
 			<Text mb={4}>
 				This is a MERN stack-based chat application that allows users to

@@ -13,7 +13,7 @@ const NavBar = () => {
 			<Flex justifyContent="space-between" alignItems="center">
 				<Box>
 					<Heading as="h2" size="xl" color="blue.500">
-						MERN Chat App
+						MernApp
 					</Heading>
 				</Box>
 				<Flex>

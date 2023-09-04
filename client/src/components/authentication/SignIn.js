@@ -105,7 +105,7 @@ const SignIn = () => {
 								fontWeight="300"
 								fontSize="24px"
 								letterSpacing="-0.5px">
-								Sign in to Muchatlu
+								Sign in to MernApp
 							</Heading>
 						</VStack>
 						<Card

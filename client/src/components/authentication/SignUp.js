@@ -167,7 +167,7 @@ const SignUp = () => {
 								fontWeight="300"
 								fontSize="24px"
 								letterSpacing="-0.5px">
-								Sign Up to Muchatlu
+								Sign Up to MernApp
 							</Heading>
 						</VStack>
 						<Card
@@ -281,13 +281,13 @@ const SignUp = () => {
 							<CardBody>
 								<Center>
 									<HStack fontSize="sm" spacing="1">
-										<Text>New to Muchatlu?</Text>
+										<Text>Already Have Account?</Text>
 										<Link
 											as={RouterLink}
 											to="/signin"
 											color="#0969da"
 											_hover={{ textDecoration: "underline" }}>
-											Already Have Account? Sign In
+											Sign In
 										</Link>
 									</HStack>
 								</Center>

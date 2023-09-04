@@ -42,7 +42,8 @@ const ChatProvider = ({ children }) => {
 	);
 };
 
-export const ChatState = () => {
+const ChatState = () => {
 	return useContext(ChatContext);
 };
-export default ChatProvider;
+
+export { ChatProvider, ChatState };

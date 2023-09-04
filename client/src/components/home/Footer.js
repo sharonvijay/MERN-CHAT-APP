@@ -13,7 +13,7 @@ const Footer = () => {
 				{/* Left Side */}
 				<Box>
 					<Heading as="h3" size="md">
-						MERN Chat App
+						MernApp
 					</Heading>
 					<Flex mt={2}>
 						<Link href="https://github.com" isExternal mr={2}>
@@ -36,12 +36,6 @@ const Footer = () => {
 							isExternal
 							ml={2}>
 							Sharon Vijay
-						</Link>
-						<Link
-							href="https://www.linkedin.com/in/trehanpraharsh/"
-							isExternal
-							ml={2}>
-							Praharsh Trehan
 						</Link>
 					</Flex>
 				</Box>
