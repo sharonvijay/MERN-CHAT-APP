@@ -11,7 +11,6 @@ const app = express();
 app.use(express.json());
 dotenv.config();
 
-// const PORT = process.env.PORT;
 const PORT = 5000;
 
 connectDB()
