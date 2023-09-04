@@ -13,16 +13,10 @@ dotenv.config();
 
 const PORT = 5000;
 
-connectDB()
-	// .then(() => {
-	// 	app.listen(PORT, () => {
-	// 		console.log(`Server is running on Port ${PORT}`);
-	// 	});
-	// })
-	.catch((error) => {
-		console.error(`Failed to connect to MongoDB: ${error.message}`);
-		process.exit(1);
-	});
+connectDB().catch((error) => {
+	console.error(`Failed to connect to MongoDB: ${error.message}`);
+	process.exit(1);
+});
 
 app.use("/api/user", userRoutes);
 app.use("/api/chat", chatRoutes);
