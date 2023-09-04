@@ -2,7 +2,6 @@ import mongoose from "mongoose";
 
 const connectDB = async () => {
 	try {
-		// await mongoose.connect(process.env.CONNECTION_URL);
 		await mongoose.connect(
 			"mongodb+srv://sharonvijay2003:sharonvijay2003@mern.72x3pbl.mongodb.net/chatappdb?retryWrites=true&w=majority"
 		);
