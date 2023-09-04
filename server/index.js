@@ -1,5 +1,6 @@
 import express from "express";
 import dotenv from "dotenv";
+import cors from "cors";
 import chats from "./data/data.js";
 import userRoutes from "./routes/userRoutes.js";
 import chatRoutes from "./routes/chatRoutes.js";
@@ -12,6 +13,8 @@ app.use(express.json());
 dotenv.config();
 
 const PORT = 5000;
+
+app.use(cors());
 
 connectDB().catch((error) => {
 	console.error(`Failed to connect to MongoDB: ${error.message}`);
