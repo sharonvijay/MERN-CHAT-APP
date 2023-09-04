@@ -51,7 +51,7 @@ const SignIn = () => {
 			};
 
 			const { data } = await axios.post(
-				"/api/user/login",
+				"https://mernapp-u0sa.onrender.com/api/user/login",
 				{ email, password },
 				config
 			);

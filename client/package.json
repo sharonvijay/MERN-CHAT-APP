@@ -1,7 +1,6 @@
 {
   "name": "client",
   "version": "0.1.0",
-  "proxy": "https://mernapp-u0sa.onrender.com",
   "private": true,
   "dependencies": {
     "@chakra-ui/icons": "^2.0.19",
