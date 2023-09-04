@@ -15,7 +15,7 @@ import "./styles.css";
 import axios from "axios";
 
 // const ENDPOINT = "http://localhost:5000/";
-const ENDPOINT = "https://mernapp-3otp.onrender.com/";
+const ENDPOINT = "https://mernapp-u0sa.onrender.com/";
 var socket, selectedChatCompare;
 
 const SingleChat = ({ fetchAgain, setFetchAgain }) => {
