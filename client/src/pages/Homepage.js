@@ -11,9 +11,8 @@ function Homepage() {
 	useEffect(() => {
 		if (!user) {
 			const userInfo = JSON.parse(localStorage.getItem("userInfo"));
-			if (userInfo) {
-				updateUser(userInfo);
-			}
+			console.log("HomePage " + userInfo);
+			updateUser(userInfo);
 		}
 	}, [user, updateUser]);
 	return (

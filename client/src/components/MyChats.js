@@ -12,7 +12,16 @@ import { ChatState } from "../context/ChatProvider";
 const MyChats = ({ fetchAgain }) => {
 	const [loggedUser, setLoggedUser] = useState();
 
-	const { selectedChat, setSelectedChat, user, chats, setChats } = ChatState();
+	const { selectedChat, setSelectedChat, user, chats, setChats, updateUser } =
+		ChatState();
+
+	useEffect(() => {
+		if (!user) {
+			const userInfo = JSON.parse(localStorage.getItem("userInfo"));
+			console.log("MyChats" + userInfo);
+			updateUser(userInfo);
+		}
+	}, [user, updateUser]);
 
 	console.log("MyChats " + user.token);
 
