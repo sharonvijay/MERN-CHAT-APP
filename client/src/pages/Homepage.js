@@ -8,19 +8,19 @@ import Content from "../components/home/Content";
 import { ChatState } from "../context/ChatProvider";
 function Homepage() {
 	const navigate = useNavigate();
-	const user = ChatState();
+	const { user, updateUser } = ChatState();
 
 	useEffect(() => {
-		const userItem = localStorage.getItem("userItem");
-		console.log("User Item:", userItem);
-		if (userItem) {
-			// If the user item exists, redirect the user to the chats page
-			navigate("/chats");
-		} else {
-			// If the user item does not exist, redirect the user to the login page
-			navigate("/");
+		if (!user) {
+			const userInfo = JSON.parse(localStorage.getItem("userInfo"));
+			if (userInfo) {
+				updateUser(userInfo);
+				navigate("/chats");
+			} else {
+				navigate("/signin");
+			}
 		}
-	}, [navigate]);
+	}, [user, navigate, updateUser]);
 	return (
 		<Container minWidth="100vw" className="Homepage">
 			<Box minHeight="100vh" display="flex" flexDirection="column">
