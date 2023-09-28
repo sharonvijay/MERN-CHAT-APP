@@ -10,7 +10,7 @@ const ChatProvider = ({ children }) => {
 	useEffect(() => {
 		const userInfo = JSON.parse(localStorage.getItem("userInfo"));
 		setUser(userInfo);
-		console.log("ChatProvider " + userInfo);
+		console.log("ChatProvider " + userInfo.token);
 	}, []);
 
 	const updateUser = (user) => {
