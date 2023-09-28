@@ -14,7 +14,7 @@ dotenv.config();
 
 const PORT = 5000;
 
-app.use(cors());
+app.use(cors({ origin: "https://maa-muchatlu.netlify.app" }));
 
 connectDB().catch((error) => {
 	console.error(`Failed to connect to MongoDB: ${error.message}`);
