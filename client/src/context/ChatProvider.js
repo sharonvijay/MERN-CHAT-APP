@@ -1,6 +1,4 @@
-import { createContext, useContext, useState } from "react";
-// import { useNavigate } from "react-router-dom";
-
+import { createContext, useContext, useState, useEffect } from "react";
 const ChatContext = createContext();
 
 const ChatProvider = ({ children }) => {
@@ -8,17 +6,12 @@ const ChatProvider = ({ children }) => {
 	const [user, setUser] = useState();
 	const [notification, setNotification] = useState([]);
 	const [chats, setChats] = useState();
-	// const navigate = useNavigate();
 
-	// useEffect(() => {
-	// 	const userInfo = JSON.parse(localStorage.getItem("userInfo"));
-	// 	setUser(userInfo);
-
-	// 	// if (!userInfo) {
-	// 	// 	navigate("/signin");
-	// 	// }
-	// 	// eslint-disable-next-line react-hooks/exhaustive-deps
-	// }, []);
+	useEffect(() => {
+		const userInfo = JSON.parse(localStorage.getItem("userInfo"));
+		setUser(userInfo);
+		console.log("ChatProvider " + userInfo);
+	}, []);
 
 	const updateUser = (user) => {
 		setUser(user);

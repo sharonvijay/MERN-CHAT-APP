@@ -14,6 +14,7 @@ const Chatpage = () => {
 	useEffect(() => {
 		if (!user) {
 			const userInfo = JSON.parse(localStorage.getItem("userInfo"));
+			console.log("ChatPage " + userInfo);
 			if (userInfo) {
 				updateUser(userInfo);
 			} else {
