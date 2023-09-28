@@ -10,15 +10,15 @@ const ChatProvider = ({ children }) => {
 	const [chats, setChats] = useState();
 	// const navigate = useNavigate();
 
-	useEffect(() => {
-		const userInfo = JSON.parse(localStorage.getItem("userInfo"));
-		setUser(userInfo);
+	// useEffect(() => {
+	// 	const userInfo = JSON.parse(localStorage.getItem("userInfo"));
+	// 	setUser(userInfo);
 
-		// if (!userInfo) {
-		// 	navigate("/signin");
-		// }
-		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, []);
+	// 	// if (!userInfo) {
+	// 	// 	navigate("/signin");
+	// 	// }
+	// 	// eslint-disable-next-line react-hooks/exhaustive-deps
+	// }, []);
 
 	const updateUser = (user) => {
 		setUser(user);

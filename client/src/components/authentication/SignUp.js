@@ -16,6 +16,8 @@ import { FormControl, FormLabel } from "@chakra-ui/form-control";
 import { Input, InputGroup, InputRightElement } from "@chakra-ui/input";
 import { Stack, VStack, HStack } from "@chakra-ui/layout";
 import loginBanner from "../../assets/loginBanner.jpg";
+import { ChatState } from "../../context/ChatProvider";
+
 const SignUp = () => {
 	const [showone, setShowone] = useState(false);
 	const [showtwo, setShowtwo] = useState(false);
@@ -28,6 +30,7 @@ const SignUp = () => {
 
 	const toast = useToast();
 	const navigate = useNavigate();
+	const { updateUser } = ChatState();
 
 	const handleClickone = () => setShowone(!showone);
 	const handleClicktwo = () => setShowtwo(!showtwo);
@@ -126,6 +129,7 @@ const SignUp = () => {
 				position: "bottom",
 			});
 			localStorage.setItem("userInfo", JSON.stringify(data));
+			updateUser(data);
 			setPicLoading(false);
 			navigate("/chats");
 		} catch (error) {

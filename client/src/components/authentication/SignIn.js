@@ -16,6 +16,7 @@ import { Input, InputGroup, InputRightElement } from "@chakra-ui/input";
 import { Stack, VStack, HStack } from "@chakra-ui/layout";
 import { useToast } from "@chakra-ui/react";
 import loginBanner from "../../assets/loginBanner.jpg";
+import { ChatState } from "../../context/ChatProvider";
 const SignIn = () => {
 	const [show, setShow] = useState(false);
 	const [email, setEmail] = useState();
@@ -27,6 +28,8 @@ const SignIn = () => {
 	const toast = useToast();
 
 	const navigate = useNavigate();
+
+	const { updateUser } = ChatState();
 
 	const submitHandler = async () => {
 		setLoading(true);
@@ -65,6 +68,7 @@ const SignIn = () => {
 				position: "bottom",
 			});
 			localStorage.setItem("userInfo", JSON.stringify(data));
+			updateUser(data);
 			setLoading(false);
 			navigate("/chats");
 		} catch (error) {
